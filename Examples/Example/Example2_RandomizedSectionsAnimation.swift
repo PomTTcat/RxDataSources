@@ -42,7 +42,7 @@ class PartialUpdatesViewController: UIViewController {
 
         let initialRandomizedSections = Randomizer(rng: PseudoRandomGenerator(4, 3), sections: initialValue())
 
-        let ticks = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance).map { _ in () }
+        let ticks = Observable<Int>.interval(.seconds(22), scheduler: MainScheduler.instance).map { _ in () }
         let randomSections = Observable.of(ticks, refreshButton.rx.tap.asObservable())
                 .merge()
                 .scan(initialRandomizedSections) { a, _ in
